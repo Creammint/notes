@@ -6,12 +6,24 @@ export default defineUserConfig({
   base: "/",
   // 请不要忘记设置默认语言
   lang: 'zh-CN',
+  title: '云笔记',
+  link: 'https://y.creammint.cn/basis/build-img/note.png',
   theme: plumeTheme({
-    profile: {
+      head: [
+        // ...略...
+        ['link', {rel: 'stylesheet', href: './public/css/style.css'}],
+      ],  
+      footer: {
+        // 自定义 footer，留空字符串可以隐藏
+        copyright: '©2024 Cream薄荷糖',
+        poweredBy: false, 
+      },
+      profile: {
         name: 'Cream薄荷糖',
         description: 'Cream薄荷糖的云笔记',
         avatar: 'https://y.creammint.cn/basis/build-img/avatar_2.webp',
         circle: true, // 是否为圆形头像
+        footer: '©2024 Cream薄荷糖',
       },
       navbar: [
         { text: '首页', link: '/', icon: 'material-symbols:home-outline' },
