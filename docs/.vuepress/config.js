@@ -9,6 +9,10 @@ export default defineUserConfig({
   title: '云笔记',
   theme: plumeTheme({
       logo: "https://y.creammint.cn/basis/build-img/note.png",   
+      head: [
+        ['link', { rel: 'icon', href: 'https://y.creammint.cn/basis/build-img/note.png' }],
+        // 添加其他head内容，比如添加样式等
+      ],
       footer: {
         // 自定义 footer，留空字符串可以隐藏
         copyright: '©2024 Cream薄荷糖',
