@@ -7,9 +7,12 @@ export default defineUserConfig({
   // 请不要忘记设置默认语言
   lang: 'zh-CN',
   title: '云笔记',
-  logo: "https://y.creammint.cn/basis/build-img/note.png",
+  head: [
+    ['link', { rel: 'icon', href: 'https://y.creammint.cn/basis/build-img/note.png' }],
+    // 添加其他head内容，比如添加样式等
+  ],
   theme: plumeTheme({
-      logo: "https://y.creammint.cn/basis/build-img/note.png",
+      logo: "https://y.creammint.cn/basis/build-img/note.png",   
       footer: {
         // 自定义 footer，留空字符串可以隐藏
         copyright: '©2024 Cream薄荷糖',
