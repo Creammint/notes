@@ -92,13 +92,8 @@ export default defineUserConfig({
               {
                 text: '基础语法',
                 //icon: 'mdi:language-typescript', // 侧边栏图标
-                items: ['Oracle简介','Oracle 数据库连接','Oracle 数据库创建导入'] // 简化写法，主题会自动补全为 `foo.md`
-              },
-              {
-                text: '函数',
-                //icon: 'mdi:language-typescript', // 侧边栏图标
-                items: ['Oracle简介','Oracle 数据库连接','Oracle 数据库创建导入'] // 简化写法，主题会自动补全为 `foo.md`
-              },
+                items: ['Oracle简介','Oracle函数','Oracle 数据库连接','Oracle 数据库创建导入'] // 简化写法，主题会自动补全为 `foo.md`
+              }
             ]
           },
           {
