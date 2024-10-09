@@ -300,9 +300,9 @@ decode(字段或字段的运算，值1，值2，值3）
 
 函数在Oracle数据库中用于将字符串转换为日期类型。它使用特定的格式模型来解析字符串，并将其转换为Oracle的日期类型。
 
-**语法：**TO_DATE(string, format)
+`语法:`TO_DATE(string, format)
 
-**格式模型**:
+`格式模型:`
 
 - `YYYY` 四位年份
 - `MM` 两位月份
@@ -315,7 +315,7 @@ decode(字段或字段的运算，值1，值2，值3）
 SELECT TO_DATE('2023-03-01', 'YYYY-MM-DD') FROM dual;	
 ```
 
-**NLS参数**: `TO_DATE` 函数也可以接受NLS参数来定义一些特定的本地化设置，例如：
+`NLS参数:` `TO_DATE` 函数也可以接受NLS参数来定义一些特定的本地化设置，例如：
 
 - `NLS_DATE_LANGUAGE` 定义日期和时间的语言。
 
@@ -639,7 +639,7 @@ AS 相差秒数 from dual;
 
 sysdate+1 加一天 sysdate+1/24 加1小时 sysdate+1/(24*60) 加1分钟 sysdate+1/(24*60*60) 加1秒钟 类推至毫秒0.001秒
 
-**加法**
+##### 加法
 
 ```sql
 select sysdate,add_months(sysdate,12) from dual;        --加1年 
@@ -651,7 +651,7 @@ select sysdate,to_char(sysdate+1/24/60,'yyyy-mm-dd HH24:MI:SS') from dual;  --�
 select sysdate,to_char(sysdate+1/24/60/60,'yyyy-mm-dd HH24:MI:SS') from dual;  --加1秒 
 ```
 
-**减法**
+##### 减法
 
 ```sql
 select sysdate,add_months(sysdate,-12) from dual;        --减1年 
@@ -715,9 +715,9 @@ FROM dual;
 
 `ROW_NUMBER()` 是一个分析函数，它在查询结果集中为每一行分配一个唯一的连续整数。这个函数通常与 `OVER()` 子句结合使用，以定义窗口规则，例如分区和排序。
 
-**语法：**ROW_NUMBER() OVER(PARTITION BY column1, column2 ... ORDER BY column1, column2 ...)
+`语法：`ROW_NUMBER() OVER(PARTITION BY column1, column2 ... ORDER BY column1, column2 ...)
 
-**参数**:
+`参数:`
 
 - `PARTITION BY`: 可选参数，用于将数据划分为多个分区。在每个分区内，行号将独立重新从1开始分配。
 - `ORDER BY`: 必需参数，用于指定行号分配的顺序。如果未指定 `ORDER BY`，则行号的分配顺序是不确定的。
@@ -740,7 +740,7 @@ FROM employees;
 
 #### simple CASE(简单形式) 
 
-**simple CASE：**类似DECODE函数
+`simple CASE：`类似DECODE函数
 
 simple case的表达式：
 
@@ -798,33 +798,6 @@ condition1 是条件表达式与expr>comparevalue1一样
 
 
 
-### wm_concat --会淘汰
-
-`WM_CONCAT` 是一个用于将多个行的字符串值连接成一个由逗号分隔的单一字符串的聚合函数。它通常与 `GROUP BY` 子句一起使用，以便对特定列中的值进行分组合并。
-
-**语法：**WM_CONCAT(expression [ORDER BY column] [SEPARATOR 'delimiter'])
-
-**参数**:
-
-- `expression`: 要合并的表达式或列。
-- `column`: 可选的排序表达式。
-- `delimiter`: 可选的分隔符，默认为逗号。
-
-```sql
---查询将合并每个部门的所有员工姓名，按姓名排序。
-SELECT department_id, WM_CONCAT(employee_name ORDER BY employee_name) 
-FROM employees 
-GROUP BY department_id;
-```
-
-> 注意事项：
->
-> - `WM_CONCAT` 是一个未记录在官方文档中的函数，因此不建议在生产环境中使用，因为它可能在未来的版本中被移除或更改 。
-> - 在Oracle 11g Release 2及以后的版本中，推荐使用 `LISTAGG` 函数来代替 `WM_CONCAT`，因为 `LISTAGG` 提供了更好的性能和更多的功能，包括排序和去重 。
-> - `WM_CONCAT` 函数在Oracle 12c及以后的版本中已被移除 。
-
-
-
 ### pivot：行转列
 
 `PIVOT`操作符允许你根据一个或多个列的值来聚合数据，并将这些值转换成新的列。也可以使用 `decode`和`case when`实现；
@@ -845,7 +818,7 @@ PIVOT
 )
 ```
 
-**参数说明：**
+`参数说明：`
 
 - `aggregate_function`: 聚合函数，如`SUM`, `COUNT`, `AVG`, `MAX`, `MIN`等。
 - `column_to_aggregate`: 需要聚合的列。
@@ -913,7 +886,7 @@ SELECT NVL(employee_name, 'No Name Provided') FROM employees;
 SELECT NVL2(employee_name, 'Employee', 'No Name Provided') FROM employees;
 ```
 
-**区别：**
+`区别：`
 
 - `NVL` 仅替换 `NULL` 值为指定的值。
 - `NVL2` 提供了更多的灵活性，允许你为 `NULL` 和非 `NULL` 值指定不同的返回值
@@ -939,16 +912,6 @@ Select rownum From dual;	--1
 | MIN    | 最小值                    |
 | MAX    | 最大值                    |
 | COUNT  | 统计个数                  |
-
-
-
-### 
-
-
-
-
-
-
 
 
 
