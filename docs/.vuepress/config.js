@@ -35,7 +35,11 @@ export default defineUserConfig({
               items: [
                 {
                   text: 'Oracle',
-                  link: '/database/gveb0901/',
+                  link: '/database/oracle/g0nuifg0/',
+                },
+                {
+                  text: 'MySQL',
+                  link: '/database/mysql/loxjmjer/',
                 }
               ],
             },
@@ -86,21 +90,41 @@ export default defineUserConfig({
         link: '/', // 声明所有笔记默认的链接前缀， 默认为 '/'
         notes: [
           {
-            dir: 'database', // 声明笔记的目录，相对于 `notes.dir`
-            link: '/database/', // 声明笔记的链接前缀
+            dir: 'database/oracle', // 声明笔记的目录，相对于 `notes.dir`
+            link: '/database/oracle/', // 声明笔记的链接前缀
             sidebar: [ // 配置侧边栏
               {
                 text: '基础介绍',
                 //icon: 'mdi:language-typescript', // 侧边栏图标
-                items: ['Oracle简介','Oracle 数据库连接','Oracle 数据库创建导入'] // 简化写法，主题会自动补全为 `foo.md`
+                items: ['Oracle 简介','Oracle 数据库连接','Oracle 数据库创建导入'] // 简化写法，主题会自动补全为 `foo.md`
+              }
+              ,
+              {
+                text: '软件工具',
+                //icon: 'mdi:language-typescript', // 侧边栏图标
+                items: ['PLSQL 使用技巧、快捷键'] // 简化写法，主题会自动补全为 `foo.md`
               },
               {
-                text: '基础语法',
+                text: '操作语法',
                 //icon: 'mdi:language-typescript', // 侧边栏图标
-                items: ['Oracle函数','Oracle 数据操作语法'] // 简化写法，主题会自动补全为 `foo.md`
+                items: ['Oracle 函数','Oracle 数据操作语法'] // 简化写法，主题会自动补全为 `foo.md`
+              },
+              {
+                text: '数据库操作',
+                //icon: 'mdi:language-typescript', // 侧边栏图标
+                items: ['Oracle 查看表空间','Oracle 查看处理死锁','Oracle 查看表或视图的定义语句'] // 简化写法，主题会自动补全为 `foo.md`
               }
+              
             ]
           },
+          {
+            dir: 'database/mysql',
+            link: '/database/mysql/',
+            sidebar: [
+              { text: 'Mysql基础', items: ['MySQL 数据库安装'] }
+            ]
+          }
+          ,
           {
             dir: 'java',
             link: '/java/',
